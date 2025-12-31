@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/brainz-lab/brainzlab-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/brainz-lab/brainzlab-ui/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/brainz-lab/brainzlab-ui/actions/workflows/codeql.yml/badge.svg)](https://github.com/brainz-lab/brainzlab-ui/actions/workflows/codeql.yml)
+[![codecov](https://codecov.io/gh/brainz-lab/brainzlab-ui/graph/badge.svg)](https://codecov.io/gh/brainz-lab/brainzlab-ui)
 [![Gem Version](https://badge.fury.io/rb/brainzlab-ui.svg)](https://rubygems.org/gems/brainzlab-ui)
 [![License: OSAaSy](https://img.shields.io/badge/License-OSAaSy-blue.svg)](LICENSE)
 
