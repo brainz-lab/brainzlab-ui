@@ -4,10 +4,10 @@ module Brainzlab
   module Components
     class Modal < Base
       SIZES = {
-        sm: "modal-sm",
-        md: "modal-md",
-        lg: "modal-lg",
-        xl: "modal-xl"
+        sm: 'modal-sm',
+        md: 'modal-md',
+        lg: 'modal-lg',
+        xl: 'modal-xl'
       }.freeze
 
       def initialize(size: :md, **attrs)
@@ -16,14 +16,14 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: "modal-overlay", data: { modal_target: "overlay" })
-        div(class: modal_classes, role: "dialog", **@attrs, &)
+        div(class: 'modal-overlay', data: { modal_target: 'overlay' })
+        div(class: modal_classes, role: 'dialog', **@attrs, &)
       end
 
       private
 
       def modal_classes
-        classes("modal", SIZES[@size], @attrs[:class])
+        classes('modal', SIZES[@size], @attrs[:class])
       end
     end
 
@@ -33,7 +33,7 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: classes("modal-header", @attrs[:class]), **@attrs.except(:class), &)
+        div(class: classes('modal-header', @attrs[:class]), **@attrs.except(:class), &)
       end
     end
 
@@ -43,7 +43,7 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: classes("modal-body", @attrs[:class]), **@attrs.except(:class), &)
+        div(class: classes('modal-body', @attrs[:class]), **@attrs.except(:class), &)
       end
     end
 
@@ -53,7 +53,7 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: classes("modal-footer", @attrs[:class]), **@attrs.except(:class), &)
+        div(class: classes('modal-footer', @attrs[:class]), **@attrs.except(:class), &)
       end
     end
   end

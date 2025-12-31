@@ -8,8 +8,8 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: "table-wrapper") do
-          table(class: classes("table", @attrs[:class]), **@attrs.except(:class), &)
+        div(class: 'table-wrapper') do
+          table(class: classes('table', @attrs[:class]), **@attrs.except(:class), &)
         end
       end
     end

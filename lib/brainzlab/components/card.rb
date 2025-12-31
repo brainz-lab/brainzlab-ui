@@ -17,9 +17,9 @@ module Brainzlab
 
       def card_classes
         classes(
-          "card",
-          @interactive ? "card-interactive" : nil,
-          @lift ? "card-lift" : nil,
+          'card',
+          @interactive ? 'card-interactive' : nil,
+          @lift ? 'card-lift' : nil,
           @attrs[:class]
         )
       end
@@ -31,7 +31,7 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: classes("card-header", @attrs[:class]), **@attrs.except(:class), &)
+        div(class: classes('card-header', @attrs[:class]), **@attrs.except(:class), &)
       end
     end
 
@@ -41,7 +41,7 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: classes("card-body", @attrs[:class]), **@attrs.except(:class), &)
+        div(class: classes('card-body', @attrs[:class]), **@attrs.except(:class), &)
       end
     end
 
@@ -51,7 +51,7 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: classes("card-footer", @attrs[:class]), **@attrs.except(:class), &)
+        div(class: classes('card-footer', @attrs[:class]), **@attrs.except(:class), &)
       end
     end
   end

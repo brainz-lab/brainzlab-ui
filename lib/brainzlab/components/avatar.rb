@@ -4,15 +4,15 @@ module Brainzlab
   module Components
     class Avatar < Base
       SIZES = {
-        sm: "avatar-sm",
-        md: "avatar-md",
-        lg: "avatar-lg",
-        xl: "avatar-xl"
+        sm: 'avatar-sm',
+        md: 'avatar-md',
+        lg: 'avatar-lg',
+        xl: 'avatar-xl'
       }.freeze
 
       VARIANTS = {
-        primary: "avatar-primary",
-        neutral: "avatar-neutral"
+        primary: 'avatar-primary',
+        neutral: 'avatar-neutral'
       }.freeze
 
       def initialize(name: nil, src: nil, size: :md, variant: :primary, **attrs)
@@ -27,7 +27,7 @@ module Brainzlab
         if @src
           img(
             src: @src,
-            alt: @name || "Avatar",
+            alt: @name || 'Avatar',
             class: avatar_classes
           )
         else
@@ -40,11 +40,12 @@ module Brainzlab
       private
 
       def avatar_classes
-        classes("avatar", SIZES[@size], VARIANTS[@variant], @attrs[:class])
+        classes('avatar', SIZES[@size], VARIANTS[@variant], @attrs[:class])
       end
 
       def initials
-        return "" unless @name
+        return '' unless @name
+
         @name.split.map { |part| part[0] }.take(2).join.upcase
       end
     end

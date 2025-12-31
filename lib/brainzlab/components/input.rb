@@ -3,7 +3,7 @@
 module Brainzlab
   module Components
     class Input < Base
-      def initialize(type: "text", error: false, **attrs)
+      def initialize(type: 'text', error: false, **attrs)
         @type = type
         @error = error
         @attrs = attrs
@@ -21,8 +21,8 @@ module Brainzlab
 
       def input_classes
         classes(
-          "input",
-          @error ? "input-error" : nil,
+          'input',
+          @error ? 'input-error' : nil,
           @attrs[:class]
         )
       end
@@ -37,7 +37,7 @@ module Brainzlab
       def view_template(&)
         label(
           for: @for_input,
-          class: classes("label", @attrs[:class]),
+          class: classes('label', @attrs[:class]),
           **@attrs.except(:class),
           &
         )
@@ -62,8 +62,8 @@ module Brainzlab
 
       def select_classes
         classes(
-          "select",
-          @error ? "input-error" : nil,
+          'select',
+          @error ? 'input-error' : nil,
           @attrs[:class]
         )
       end
@@ -87,8 +87,8 @@ module Brainzlab
 
       def textarea_classes
         classes(
-          "textarea",
-          @error ? "input-error" : nil,
+          'textarea',
+          @error ? 'input-error' : nil,
           @attrs[:class]
         )
       end

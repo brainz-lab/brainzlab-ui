@@ -3,7 +3,7 @@
 module Brainzlab
   module Components
     class NavItem < Base
-      def initialize(href: "#", active: false, **attrs)
+      def initialize(href: '#', active: false, **attrs)
         @href = href
         @active = active
         @attrs = attrs
@@ -22,8 +22,8 @@ module Brainzlab
 
       def nav_item_classes
         classes(
-          "nav-item",
-          @active ? "active" : nil,
+          'nav-item',
+          @active ? 'active' : nil,
           @attrs[:class]
         )
       end

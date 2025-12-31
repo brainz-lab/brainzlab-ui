@@ -1,0 +1,55 @@
+plugins:
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2
+  Exclude:
+    - "vendor/**/*"
+    - "pkg/**/*"
+    - "spec/fixtures/**/*"
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+
+# UI gem files with hyphens are standard gem naming
+Naming/FileName:
+  Exclude:
+    - "lib/brainzlab-ui.rb"
+
+# Development dependencies are in Gemfile for gems
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
+# ViewComponent initialize doesn't always need super
+Lint/MissingSuper:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ParameterLists:
+  Max: 8
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "*.gemspec"
+
+Layout/LineLength:
+  Max: 150
+  Exclude:
+    - "*.gemspec"
+
+RSpec/ExampleLength:
+  Max: 20
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+RSpec/SpecFilePathFormat:
+  Enabled: false

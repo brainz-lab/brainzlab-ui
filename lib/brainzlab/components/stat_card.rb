@@ -12,12 +12,10 @@ module Brainzlab
       end
 
       def view_template
-        div(class: classes("stat-card", @attrs[:class]), **@attrs.except(:class)) do
-          div(class: "stat-label") { @label }
-          div(class: "stat-value") { @value }
-          if @change
-            span(class: change_classes) { @change }
-          end
+        div(class: classes('stat-card', @attrs[:class]), **@attrs.except(:class)) do
+          div(class: 'stat-label') { @label }
+          div(class: 'stat-value') { @value }
+          span(class: change_classes) { @change } if @change
         end
       end
 
@@ -25,9 +23,9 @@ module Brainzlab
 
       def change_classes
         classes(
-          "stat-change",
-          @change_type == :positive ? "stat-change-positive" : nil,
-          @change_type == :negative ? "stat-change-negative" : nil
+          'stat-change',
+          @change_type == :positive ? 'stat-change-positive' : nil,
+          @change_type == :negative ? 'stat-change-negative' : nil
         )
       end
     end

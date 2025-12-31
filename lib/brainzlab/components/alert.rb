@@ -4,10 +4,10 @@ module Brainzlab
   module Components
     class Alert < Base
       TYPES = {
-        success: "alert-success",
-        error: "alert-error",
-        warning: "alert-warning",
-        info: "alert-info"
+        success: 'alert-success',
+        error: 'alert-error',
+        warning: 'alert-warning',
+        info: 'alert-info'
       }.freeze
 
       def initialize(type: :info, **attrs)
@@ -16,13 +16,13 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: alert_classes, role: "alert", **@attrs, &)
+        div(class: alert_classes, role: 'alert', **@attrs, &)
       end
 
       private
 
       def alert_classes
-        classes("alert", TYPES[@type], @attrs[:class])
+        classes('alert', TYPES[@type], @attrs[:class])
       end
     end
   end

@@ -11,20 +11,14 @@ module Brainzlab
       end
 
       def view_template(&)
-        div(class: classes("empty-state", @attrs[:class]), **@attrs.except(:class)) do
-          if @icon
-            div(class: "empty-state-icon") { @icon }
-          end
+        div(class: classes('empty-state', @attrs[:class]), **@attrs.except(:class)) do
+          div(class: 'empty-state-icon') { @icon } if @icon
 
-          h3(class: "empty-state-title") { @title }
+          h3(class: 'empty-state-title') { @title }
 
-          if @description
-            p(class: "empty-state-description") { @description }
-          end
+          p(class: 'empty-state-description') { @description } if @description
 
-          if block_given?
-            div(class: "mt-4") { yield }
-          end
+          div(class: 'mt-4', &) if block_given?
         end
       end
     end

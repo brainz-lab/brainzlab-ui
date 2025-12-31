@@ -4,19 +4,19 @@ module Brainzlab
   module Components
     class Button < Base
       VARIANTS = {
-        primary: "btn-primary",
-        secondary: "btn-secondary",
-        ghost: "btn-ghost",
-        danger: "btn-danger"
+        primary: 'btn-primary',
+        secondary: 'btn-secondary',
+        ghost: 'btn-ghost',
+        danger: 'btn-danger'
       }.freeze
 
       SIZES = {
-        sm: "btn-sm",
+        sm: 'btn-sm',
         md: nil,
-        lg: "btn-lg"
+        lg: 'btn-lg'
       }.freeze
 
-      def initialize(variant: :primary, size: :md, lift: false, disabled: false, type: "button", **attrs)
+      def initialize(variant: :primary, size: :md, lift: false, disabled: false, type: 'button', **attrs)
         @variant = variant
         @size = size
         @lift = lift
@@ -41,7 +41,7 @@ module Brainzlab
         classes(
           VARIANTS[@variant],
           SIZES[@size],
-          @lift ? "btn-lift" : nil,
+          @lift ? 'btn-lift' : nil,
           @attrs[:class]
         )
       end
