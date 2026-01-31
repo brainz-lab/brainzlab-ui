@@ -116,14 +116,22 @@
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.15s ease;
+  transition: all var(--duration-fast) var(--ease-out);
   margin-bottom: 0.5rem;
   z-index: 50;
 }
 
-.tooltip:hover .tooltip-content {
+.tooltip:hover .tooltip-content,
+.tooltip:focus-within .tooltip-content {
   opacity: 1;
   visibility: visible;
+}
+
+/* Tooltip focus indicator */
+.tooltip:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* ----------------------------------------
@@ -207,7 +215,7 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
-  transition: all 0.15s ease;
+  transition: all var(--duration-fast) var(--ease-out);
 }
 
 .dropdown.open .dropdown-menu,
@@ -224,10 +232,17 @@
   padding: 0.625rem 1rem;
   font-size: 0.875rem;
   color: var(--color-ink-700);
-  transition: all 0.15s ease;
+  transition: all var(--duration-fast) var(--ease-out);
 }
 
 .dropdown-item:hover {
+  background: var(--color-cream-50);
+  color: var(--color-ink-900);
+}
+
+.dropdown-item:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: -2px;
   background: var(--color-cream-50);
   color: var(--color-ink-900);
 }
@@ -260,3 +275,303 @@
 .text-warning { color: var(--color-warning-600); }
 .text-info { color: var(--color-info-600); }
 .text-muted { color: var(--color-ink-500); }
+
+/* ----------------------------------------
+   TYPOGRAPHY SCALE
+   ---------------------------------------- */
+.text-xs { font-size: var(--text-xs); }
+.text-sm { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+.text-2xl { font-size: var(--text-2xl); }
+.text-3xl { font-size: var(--text-3xl); }
+.text-4xl { font-size: var(--text-4xl); }
+.text-5xl { font-size: var(--text-5xl); }
+.text-6xl { font-size: var(--text-6xl); }
+.text-7xl { font-size: var(--text-7xl); }
+
+/* ----------------------------------------
+   LINE HEIGHTS
+   ---------------------------------------- */
+.leading-none { line-height: var(--leading-none); }
+.leading-tight { line-height: var(--leading-tight); }
+.leading-snug { line-height: var(--leading-snug); }
+.leading-normal { line-height: var(--leading-normal); }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+.leading-loose { line-height: var(--leading-loose); }
+
+/* ----------------------------------------
+   LETTER SPACING
+   ---------------------------------------- */
+.tracking-tighter { letter-spacing: var(--tracking-tighter); }
+.tracking-tight { letter-spacing: var(--tracking-tight); }
+.tracking-normal { letter-spacing: var(--tracking-normal); }
+.tracking-wide { letter-spacing: var(--tracking-wide); }
+.tracking-wider { letter-spacing: var(--tracking-wider); }
+
+/* ----------------------------------------
+   FONT WEIGHTS
+   ---------------------------------------- */
+.font-thin { font-weight: var(--font-thin); }
+.font-light { font-weight: var(--font-light); }
+.font-normal { font-weight: var(--font-normal); }
+.font-medium { font-weight: var(--font-medium); }
+.font-semibold { font-weight: var(--font-semibold); }
+.font-bold { font-weight: var(--font-bold); }
+.font-extrabold { font-weight: var(--font-extrabold); }
+
+/* ----------------------------------------
+   FONT FAMILIES
+   ---------------------------------------- */
+.font-sans { font-family: var(--font-sans); }
+.font-serif { font-family: var(--font-serif); }
+.font-mono { font-family: var(--font-mono); }
+
+/* ----------------------------------------
+   SCREEN READER UTILITIES
+   ---------------------------------------- */
+
+/* Visually hide content but keep it accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Undo sr-only, making content visible again */
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Focusable sr-only - becomes visible when focused */
+.sr-only-focusable:not(:focus):not(:focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ----------------------------------------
+   REDUCED MOTION
+   ---------------------------------------- */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ----------------------------------------
+   HIGH CONTRAST MODE
+   ---------------------------------------- */
+
+/* Enhanced focus for high contrast mode */
+@media (prefers-contrast: more) {
+  :focus-visible {
+    outline: 3px solid currentColor !important;
+    outline-offset: 3px !important;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .btn-danger {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ----------------------------------------
+   FOCUS WITHIN UTILITIES
+   ---------------------------------------- */
+
+/* Show child elements when parent has focus within */
+.focus-within-show:focus-within .focus-within-target {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hide by default, show on focus within */
+.focus-within-target {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-fast) var(--ease-out), visibility var(--duration-fast) var(--ease-out);
+}
+
+/* ----------------------------------------
+   KEYBOARD NAVIGATION UTILITIES
+   ---------------------------------------- */
+
+/* Visible focus indicator for keyboard users only */
+.focus-visible-only:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.focus-visible-only:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------
+   TRANSITION UTILITIES
+   ---------------------------------------- */
+.transition-none { transition: none; }
+.transition-all { transition: all var(--duration-normal) var(--ease-out); }
+.transition-colors { transition: color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+.transition-opacity { transition: opacity var(--duration-normal) var(--ease-out); }
+.transition-transform { transition: transform var(--duration-normal) var(--ease-out-expo); }
+.transition-shadow { transition: box-shadow var(--duration-normal) var(--ease-out); }
+
+/* Duration modifiers */
+.duration-fast { transition-duration: var(--duration-fast); }
+.duration-normal { transition-duration: var(--duration-normal); }
+.duration-slow { transition-duration: var(--duration-slow); }
+.duration-slower { transition-duration: var(--duration-slower); }
+
+/* Easing modifiers */
+.ease-linear { transition-timing-function: var(--ease-linear); }
+.ease-in { transition-timing-function: var(--ease-in); }
+.ease-out { transition-timing-function: var(--ease-out); }
+.ease-in-out { transition-timing-function: var(--ease-in-out); }
+.ease-bounce { transition-timing-function: var(--ease-bounce); }
+
+/* ============================================
+   DARK MODE UTILITY VARIANTS
+   ============================================ */
+
+/* ----------------------------------------
+   DARK MODE - FOCUS RING
+   ---------------------------------------- */
+.dark .focus-ring:focus-visible {
+  outline-color: var(--color-primary-400);
+}
+
+/* ----------------------------------------
+   DARK MODE - GRADIENTS
+   ---------------------------------------- */
+.dark .bg-gradient-warm {
+  background: linear-gradient(135deg, var(--color-dark-surface) 0%, var(--color-dark-surface-light) 100%);
+}
+
+.dark .gradient-blob {
+  opacity: 0.3;
+}
+
+/* ----------------------------------------
+   DARK MODE - TERMINAL (already dark-themed)
+   ---------------------------------------- */
+.dark .terminal {
+  border: 1px solid var(--color-dark-border);
+}
+
+/* ----------------------------------------
+   DARK MODE - TOOLTIPS
+   ---------------------------------------- */
+.dark .tooltip-content {
+  background: var(--color-dark-surface-light);
+  color: var(--color-dark-text);
+  border: 1px solid var(--color-dark-border);
+}
+
+.dark .tooltip:focus-visible {
+  outline-color: var(--color-primary-400);
+}
+
+/* ----------------------------------------
+   DARK MODE - SKELETON LOADING
+   ---------------------------------------- */
+.dark .skeleton {
+  background: linear-gradient(90deg, var(--color-dark-surface) 25%, var(--color-dark-surface-light) 50%, var(--color-dark-surface) 75%);
+  background-size: 200% 100%;
+}
+
+/* ----------------------------------------
+   DARK MODE - MODAL OVERLAY
+   ---------------------------------------- */
+.dark .modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.dark .modal {
+  background: var(--color-dark-surface);
+  box-shadow: var(--shadow-dark-large);
+}
+
+.dark .modal-header {
+  border-bottom-color: var(--color-dark-border);
+}
+
+.dark .modal-footer {
+  border-top-color: var(--color-dark-border);
+}
+
+/* ----------------------------------------
+   DARK MODE - DROPDOWN
+   ---------------------------------------- */
+.dark .dropdown-menu {
+  background: var(--color-dark-surface);
+  border-color: var(--color-dark-border);
+  box-shadow: var(--shadow-dark-medium);
+}
+
+.dark .dropdown-item {
+  color: var(--color-dark-text-muted);
+}
+
+.dark .dropdown-item:hover {
+  background: var(--color-dark-surface-light);
+  color: var(--color-dark-text);
+}
+
+.dark .dropdown-item:focus-visible {
+  outline-color: var(--color-primary-400);
+  background: var(--color-dark-surface-light);
+  color: var(--color-dark-text);
+}
+
+.dark .dropdown-divider {
+  background: var(--color-dark-border);
+}
+
+/* ----------------------------------------
+   DARK MODE - TEXT UTILITIES
+   ---------------------------------------- */
+.dark .text-primary { color: var(--color-primary-300); }
+.dark .text-success { color: var(--color-success-400); }
+.dark .text-error { color: var(--color-error-400); }
+.dark .text-warning { color: var(--color-warning-400); }
+.dark .text-info { color: var(--color-info-400); }
+.dark .text-muted { color: var(--color-dark-text-muted); }
+
+/* ----------------------------------------
+   DARK MODE - HIGH CONTRAST
+   ---------------------------------------- */
+@media (prefers-contrast: more) {
+  .dark :focus-visible {
+    outline-color: var(--color-cream-200) !important;
+  }
+}

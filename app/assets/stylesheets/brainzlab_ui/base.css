@@ -21,3 +21,6 @@
 
 /* Utilities */
 @import "./utilities.css";
+
+/* Dark Mode */
+@import "./dark-mode.css";

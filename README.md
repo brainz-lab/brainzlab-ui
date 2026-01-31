@@ -1,4 +1,6 @@
-# Brainzlab UI
+# BrainzLab UI
+
+Unified design system for BrainzLab products with Phlex components and Tailwind CSS.
 
 [![CI](https://github.com/brainz-lab/brainzlab-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/brainz-lab/brainzlab-ui/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/brainz-lab/brainzlab-ui/actions/workflows/codeql.yml/badge.svg)](https://github.com/brainz-lab/brainzlab-ui/actions/workflows/codeql.yml)
@@ -6,7 +8,15 @@
 [![Gem Version](https://badge.fury.io/rb/brainzlab-ui.svg)](https://rubygems.org/gems/brainzlab-ui)
 [![License: OSAaSy](https://img.shields.io/badge/License-OSAaSy-blue.svg)](LICENSE)
 
-Unified design system for Brainz Lab products. Anthropic/Claude-inspired design with Phlex components and Tailwind CSS.
+## Quick Start
+
+```ruby
+# Gemfile
+gem "brainzlab-ui"
+
+# In your view
+<%= render Brainzlab::Components::Button.new(variant: :primary) { "Save" } %>
+```
 
 ## Installation
 
@@ -21,7 +31,7 @@ else
 end
 ```
 
-## CSS Setup
+### CSS Setup
 
 Import the design system in your Tailwind CSS file:
 
@@ -32,12 +42,35 @@ Import the design system in your Tailwind CSS file:
 /* Your project-specific overrides below */
 ```
 
+## Configuration
+
+The design system follows Anthropic/Claude-inspired aesthetics with warm earth tones.
+
+### Design Tokens
+
+#### Colors
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--color-primary-500` | #D97706 | Anthropic orange |
+| `--color-cream-50` | #FAFAF9 | Background |
+| `--color-ink-900` | #1C1917 | Text |
+
+#### Typography
+
+| Font | Stack | Usage |
+|------|-------|-------|
+| Sans | Inter, system-ui | Body text |
+| Serif | Source Serif 4, Georgia | Headlines |
+| Mono | JetBrains Mono, ui-monospace | Code |
+
 ## Usage
 
 ### Phlex Components
 
 ```erb
 <%= render Brainzlab::Components::Button.new(variant: :primary) { "Save" } %>
+<%= render Brainzlab::Components::Button.new(variant: :secondary) { "Cancel" } %>
 <%= render Brainzlab::Components::Card.new { "Content" } %>
 <%= render Brainzlab::Components::Badge.new(variant: :success) { "Active" } %>
 <%= render Brainzlab::Components::Alert.new(type: :info) { "Note..." } %>
@@ -52,33 +85,60 @@ Import the design system in your Tailwind CSS file:
 <span class="badge badge-success">Active</span>
 ```
 
-## Design Tokens
+### Available Components
 
-### Colors
+| Component | Variants |
+|-----------|----------|
+| **Button** | primary, secondary, ghost, danger |
+| **Card** | default, bordered, elevated |
+| **Badge** | default, success, warning, error, info |
+| **Alert** | info, success, warning, error |
+| **Input** | text, email, password, number |
+| **Select** | default, multi |
+| **Modal** | default, large, fullscreen |
+| **Table** | default, striped, compact |
+| **Tabs** | default, pills |
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--color-primary-500` | #D97706 | Anthropic orange |
-| `--color-cream-50` | #FAFAF9 | Background |
-| `--color-ink-900` | #1C1917 | Text |
+## API Reference
 
-### Typography
+### Button
 
-- **Sans**: Inter, system-ui
-- **Serif**: Source Serif 4, Georgia
-- **Mono**: JetBrains Mono, ui-monospace
+```ruby
+Brainzlab::Components::Button.new(
+  variant: :primary,  # :primary, :secondary, :ghost, :danger
+  size: :md,          # :sm, :md, :lg
+  disabled: false,
+  type: :button       # :button, :submit, :reset
+)
+```
 
-## Contributors
+### Card
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+```ruby
+Brainzlab::Components::Card.new(
+  variant: :default,  # :default, :bordered, :elevated
+  padding: :md        # :none, :sm, :md, :lg
+)
+```
 
-Thanks to all our contributors! See [all-contributors](https://allcontributors.org) for how to add yourself.
+### Badge
 
+```ruby
+Brainzlab::Components::Badge.new(
+  variant: :default,  # :default, :success, :warning, :error, :info
+  size: :md           # :sm, :md, :lg
+)
+```
+
+Full documentation: [docs.brainzlab.ai/ui](https://docs.brainzlab.ai/ui/overview)
+
+## Self-Hosting
+
+When self-hosting BrainzLab products, the UI gem is automatically included as a dependency.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and contribution guidelines.
 
 ## License
 
